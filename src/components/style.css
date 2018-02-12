@@ -1,0 +1,36 @@
+@import url('theme.css');
+
+.title-xl {
+    color: var(--text-color-accent);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-xl);
+    align-self: center;
+}
+
+.title-l {
+    color: var(--text-color-accent);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-l);
+    align-self: center;
+}
+
+.title-m {
+    color: var(--text-color-accent);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-m);
+    align-self: center;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.text {
+
+}
+
+.hightlight-border {
+    border: 2px;
+    border-color: red;
+    border-style: dotted;
+}

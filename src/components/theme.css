@@ -1,0 +1,31 @@
+
+:root{
+    /*========= Palette =========*/
+    /* https://color.adobe.com/Cool-Professional-rmx-color-theme-2487541/ */
+    --colorOne:   #2D2F33;
+    --colorTwo:   #9197A6;
+    --colorThree: #C8D1E5;
+    --colorFour:  #7A8DB1;
+    --colorFive:  #4A5C7F;
+
+    /*========= Backgrounds =========*/
+    --bg-dark:   var(--colorOne);
+    --bg-light:  var(--colorThree);
+    --bg-accent: var(--colorFive);
+
+    /*========= Text Colors =========*/
+    --text-color-dark: var(--colorOne);
+    --text-color-light: var(--colorThree);
+    --text-color-accent: #6257b0;
+    --text-color-disable:  #adad85;
+
+    /*========= Fonts =========*/
+    --font-primary: 'Nanum Gothic Coding';
+    --font-secondary: 'Lora';
+
+    --font-size-m: 12px;
+    --font-size-l: 18px;
+    --font-size-xl: 22px;
+}
+
+

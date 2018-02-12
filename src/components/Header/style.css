@@ -1,0 +1,11 @@
+@import url('../style.css');
+
+.header {
+    background-color: var(--bg-light);
+    height: 68px;
+    display: flex;
+}
+.logo {
+    height: 60px;
+
+}
