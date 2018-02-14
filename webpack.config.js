@@ -1,0 +1,46 @@
+var path = require('path')
+
+module.exports = {
+    devtool: 'source-map',
+    entry: [
+        './src/index.js'
+    ],
+    output: {
+        path: path.join(__dirname, 'build'),
+        filename: 'bundle.js',
+        publicPath: '/'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ["react"]
+                    }
+                },
+                include: path.join(__dirname, 'src')
+            },
+            {
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ]
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'assets/images/[name].[ext]'
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    devServer: {
+        port: 8000,
+        contentBase: 'public'
+    },
+}
