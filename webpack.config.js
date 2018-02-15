@@ -17,7 +17,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ["react"]
+                        presets: ['react', 'es2015', 'stage-2']
                     }
                 },
                 include: path.join(__dirname, 'src')

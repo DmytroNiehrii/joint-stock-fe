@@ -1,7 +1,13 @@
 import React from 'react'
 import {render} from 'react-dom'
-import App from './App'
-import registerServiceWorker from './registerServiceWorker'
+//import {Root} from './components/Root'
 
-render(<App/>, document.getElementById('root'))
+import store from './store'
+import registerServiceWorker from './components/registerServiceWorker'
+//import UserList from "./components/UserList/UserList";
+import Root from "./components/Root"
+//import RootAlt from "./components/RootAlt"
+
+render(<Root store = {store}/>, document.getElementById('container'))
+//render(<App/>, document.getElementById('container'))
 registerServiceWorker()
