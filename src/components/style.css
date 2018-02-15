@@ -24,9 +24,10 @@
 .bold {
     font-weight: 600;
 }
-
-.text {
-
+/*========= Text =========*/
+.secondary-text {
+    color: var(--text-color-disable);
+    font-size: var(--font-size-m);
 }
 
 .hightlight-border {

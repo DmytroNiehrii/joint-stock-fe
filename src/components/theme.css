@@ -17,7 +17,8 @@
     --text-color-dark: var(--colorOne);
     --text-color-light: var(--colorThree);
     --text-color-accent: #6257b0;
-    --text-color-disable:  #adad85;
+    --text-color-disable:  rgba(0,0,0,.68);
+
 
     /*========= Fonts =========*/
     --font-primary: 'Nanum Gothic Coding';
@@ -28,4 +29,11 @@
     --font-size-xl: 22px;
 }
 
+/*========= Borders =========*/
+.margin-bottom-s {
+    margin-bottom: 2px;
+}
+.margin-bottom-m {
+    margin-bottom: 5px;
+}
 

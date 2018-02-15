@@ -4,9 +4,12 @@
     background-color: var(--bg-light);
     height: 68px;
     display: flex;
+    flex-direction: row;
 }
 .logo {
-    height: 60px;
-    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
 
 }

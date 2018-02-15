@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import User from "../User/index";
+import User from "../User/User";
 import {loadUsers} from '../../services/api/Users'
 
 export default class UserList extends React.Component {
@@ -16,9 +16,9 @@ export default class UserList extends React.Component {
 
     render() {
         return (
-            <div className="user-container hightlight-border">
+            <div className="user-container">
                 {this.state.users.map((user, i) =>
-                    <User key={user.id} data={user}/>
+                    <User key={user.id} data={user} viewMode='card'/>
                 )}
             </div>
         )
