@@ -35,3 +35,11 @@
     border-color: red;
     border-style: dotted;
 }
+
+/*========= TextColors =========*/
+.--textColorLight {
+    color: var(--text-color-light)
+}
+.--textColorDark {
+    color: var(--text-color-light)
+}

@@ -1,8 +1,8 @@
 @import url('../style.css');
 
 .header {
-    background-color: var(--bg-light);
-    height: 68px;
+    background-color: var(--bg-dark);
+    height: var(--rootHeaderHeight);
     display: flex;
     flex-direction: row;
 }

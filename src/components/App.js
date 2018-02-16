@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Header from './Header/Header'
 import UserList from "./UserList/UserList"
-import {Route, Switch} from 'react-router-dom'
-import Menu, {MenuItem} from './Menu'
+import {Route, Switch, Redirect} from 'react-router-dom'
+import Menu, {MenuItem} from './Menu/Menu'
 
 class App extends Component {
 
@@ -10,16 +10,12 @@ class App extends Component {
         return (
             <div>
                 <Header/>
-                <UserList/>
-                <Menu>
-                    <MenuItem to='/header'>header</MenuItem>
-                    <MenuItem to='/users'>users</MenuItem>
-                    <MenuItem to='/nothing'>nothing</MenuItem>
-                </Menu>
                 <Switch>
+                    <Redirect from='/' exact to='/users'/>
                     <Route path = '/header' component = {Header} />
                     <Route path = '/users' component = {UserList} />
                     <Route path = '/nothing' />
+                    <Route path='*' render={this.notFound}/>
                 </Switch>
 
 
@@ -27,6 +23,7 @@ class App extends Component {
             </div>
         );
     }
+    notFound = () => <h1>Not Found</h1>
 }
 
 export default App;

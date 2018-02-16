@@ -12,13 +12,13 @@
     --bg-dark:   var(--colorOne);
     --bg-light:  var(--colorThree);
     --bg-accent: var(--colorFive);
+    --bg-middle: var(--colorTwo);
 
     /*========= Text Colors =========*/
     --text-color-dark: var(--colorOne);
     --text-color-light: var(--colorThree);
     --text-color-accent: #6257b0;
     --text-color-disable:  rgba(0,0,0,.68);
-
 
     /*========= Fonts =========*/
     --font-primary: 'Nanum Gothic Coding';
@@ -27,6 +27,9 @@
     --font-size-m: 12px;
     --font-size-l: 18px;
     --font-size-xl: 22px;
+
+    /*========= Size constants =========*/
+    --rootHeaderHeight: 68px;
 }
 
 /*========= Borders =========*/
