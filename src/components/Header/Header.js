@@ -15,9 +15,8 @@ export default class Header extends Component {
             <div className="header margin-bottom-m">
                 <img src={logo} className="logo"/>
                 <Menu>
-                    <MenuItem to='/header'>header</MenuItem>
-                    <MenuItem to='/users'>users</MenuItem>
-                    <MenuItem to='/nothing'>nothing</MenuItem>
+                    <MenuItem to='/user'>Users</MenuItem>
+                    <MenuItem to='/community'>Communities</MenuItem>
                 </Menu>
             </div>
         )

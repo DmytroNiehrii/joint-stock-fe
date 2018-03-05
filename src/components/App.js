@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import Header from './Header/Header'
-import UserList from "./UserList/UserList"
+import UserList from "./User/UserList"
+import CommunityList from "./Community/CommunityList"
+import Community from "./Community/Community"
 import {Route, Switch, Redirect} from 'react-router-dom'
-import Menu, {MenuItem} from './Menu/Menu'
+
 
 class App extends Component {
 
@@ -11,10 +13,10 @@ class App extends Component {
             <div>
                 <Header/>
                 <Switch>
-                    <Redirect from='/' exact to='/users'/>
-                    <Route path = '/header' component = {Header} />
-                    <Route path = '/users' component = {UserList} />
-                    <Route path = '/nothing' />
+                    <Redirect from='/' exact to='/community'/>
+                    <Route path = '/user' component = {UserList} />
+                    <Route path = '/community' component = {CommunityList}/>
+                    <Route path = '/communityCard' component = {Community}/>
                     <Route path='*' render={this.notFound}/>
                 </Switch>
 

@@ -1,9 +1,11 @@
 export function loadUsers(callback){
-    fetch('http://localhost:8090/api/user')
+    fetch('/api/user')
         .then(response => response.json())
         .then(data => {
             callback(data.content)
         })
-        .catch(err => console.error(err.toString()))
+        .catch(err => {
+            console.error('Can\'t fetch items')
+        })
 
 }

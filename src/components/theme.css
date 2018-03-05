@@ -13,6 +13,7 @@
     --bg-light:  var(--colorThree);
     --bg-accent: var(--colorFive);
     --bg-middle: var(--colorTwo);
+    --bg-menuHightlighted: var(--colorFive);
 
     /*========= Text Colors =========*/
     --text-color-dark: var(--colorOne);
@@ -30,13 +31,9 @@
 
     /*========= Size constants =========*/
     --rootHeaderHeight: 68px;
+    --margin-s: 2px;
+    --margin-m: 5px;
 }
 
-/*========= Borders =========*/
-.margin-bottom-s {
-    margin-bottom: 2px;
-}
-.margin-bottom-m {
-    margin-bottom: 5px;
-}
+
 

@@ -12,6 +12,7 @@
     "css-loader": "0.28.9",
     "es2015": "0.0.0",
     "history": "4.7.2",
+    "immutable": "3.8.2",
     "json-loader": "0.5.7",
     "loader": "2.1.1",
     "moment": "2.20.1",

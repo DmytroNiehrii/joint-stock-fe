@@ -1,0 +1,5 @@
+@import url('../generalStyle.css');
+
+.communityRowContainer {
+    margin-bottom: var(--margin-m);
+}

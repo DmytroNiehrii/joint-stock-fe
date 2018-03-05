@@ -1,0 +1,18 @@
+@import url('../generalStyle.css');
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.menuItem {
+    align-self: center;
+}
+
+.navLink {
+    color: var(--text-color-light);
+    text-decoration: unset;
+    font-size: var(--font-size-l);
+}

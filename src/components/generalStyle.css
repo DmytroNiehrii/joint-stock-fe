@@ -5,6 +5,7 @@
     font-family: var(--font-primary);
     font-size: var(--font-size-xl);
     align-self: center;
+    text-decoration: none;
 }
 
 .title-l {
@@ -42,4 +43,13 @@
 }
 .--textColorDark {
     color: var(--text-color-light)
+}
+
+.menuItemHightlighted {
+    background-color: var(--bg-menuHightlighted);
+}
+
+/*========= Behaviors =========*/
+.clickable {
+    cursor: pointer;
 }

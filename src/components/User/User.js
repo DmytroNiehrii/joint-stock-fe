@@ -4,9 +4,17 @@ import {timestampToDate} from '../../utils/dateFormat'
 import {translation} from '../../services/transtation'
 
 export default class User extends Component {
-    constructor() {
-        super()
 
+    render() {
+        const {viewMode} = this.props
+
+        switch(viewMode) {
+            case 'card':
+                return this.renderCardView()
+                break
+            default:
+                return this.renderRowView()
+        }
     }
 
     renderRowView() {
@@ -29,16 +37,5 @@ export default class User extends Component {
             </div>
         )
 
-    }
-    render() {
-        const {viewMode} = this.props
-
-        switch(viewMode) {
-            case 'card':
-                return this.renderCardView()
-                break
-            default:
-                return this.renderRowView()
-        }
     }
 }
