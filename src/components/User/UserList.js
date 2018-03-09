@@ -1,28 +1,42 @@
 import React from 'react'
 import './style.css'
 import User from "./User";
-import {loadUsers} from '../../services/api/User'
+import {checkAndLoadAllUsers} from '../../AC'
+import {connect} from 'react-redux'
+import Loading from "../Loading/Loading";
 
-export default class UserList extends React.Component {
+class UserList extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {items: []};
     }
 
     componentDidMount() {
-        loadUsers((data) => this.setState({items: data}))
+        const {checkAndLoadAllUsers } = this.props
+        checkAndLoadAllUsers()
     }
 
+
     render() {
-        if (this.state.items.length == 0) {
+        if (this.props.loading) {
+            return <Loading/>
+        }
+        if (!this.props.items || this.props.items.length == 0) {
             return <h2>No users</h2>
         } else {
             return (
-                this.state.items.map((user, i) =>
+                this.props.items.toArray().map((user, i) =>
                     <User key={user.id} data={user} viewMode='card'/>
                 )
             )
         }
     }
 }
+
+const mapStateToProps = (state) => ({
+    items: state.users.items,
+    loading: state.users.loading,
+    router: state.router
+})
+
+export default connect(mapStateToProps, { checkAndLoadAllUsers }, null, { pure: true })(UserList)

@@ -1,4 +1,4 @@
-import {SELECT_COMMUNITY, LOAD_ALL_COMMUNITIES, LOAD_COMMUNITY, START, SUCCESS, FAIL} from '../constants'
+import { LOAD_ALL_COMMUNITIES, LOAD_COMMUNITY, LOAD_ALL_USERS, LOAD_USER } from '../constants'
 import {replace} from 'react-router-redux'
 
 export function selectCommunity(id) {
@@ -21,35 +21,36 @@ export function checkAndLoadAllCommunities() {
     }
 }
 
-export function loadCommunity(id) {
+export function checkAndLoadAllUsers() {
     return (dispatch, getState) => {
-        const community = getState().communities.getIn(['items', id])
+        const {users} = getState()
 
-        if (community && (community.text || community.loading)) return
+        if (users.loading || users.loaded) return
 
         dispatch({
-            type: LOAD_ARTICLE + START,
+            type: LOAD_ALL_USERS,
+            callAPI: '/api/user'
+        })
+    }
+}
+
+export function loadUser(id) {
+    return (dispatch, getState) => {
+        dispatch({
+            type: LOAD_USER,
+            callAPI: `/api/user/${id}`,
             payload: { id }
         })
+    }
+}
 
-        setTimeout(() => fetch(`/api/community/${id}`)
-            .then(res => {
-                if (res.status >= 400) throw new Error(res.statusText)
-                return res.json()
-            })
-            .then(response => dispatch({
-                type: LOAD_ARTICLE + SUCCESS,
-                payload: { response, id }
-            }))
-            .catch(error => {
-                dispatch({
-                    type: LOAD_ARTICLE + FAIL,
-                    payload: { error, id }
-                })
-
-                dispatch(push('/error'))
-            })
-        , 500)
+export function loadCommunity(id) {
+    return (dispatch, getState) => {
+        dispatch({
+            type: LOAD_COMMUNITY,
+            callAPI: `/api/community/${id}`,
+            payload: { id }
+        })
     }
 }
 

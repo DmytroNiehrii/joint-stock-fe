@@ -4,6 +4,7 @@ import './style.css'
 import Community from "./Community"
 import {checkAndLoadAllCommunities} from '../../AC'
 import {connect} from 'react-redux'
+import Loading from "../Loading/Loading";
 
 class CommunityList extends Component {
 
@@ -17,7 +18,10 @@ class CommunityList extends Component {
     }
 
     render() {
-        if (this.props.items.length == 0) {
+        if (this.props.loading) {
+            return <Loading/>
+        }
+        if (!this.props.items || this.props.items.length == 0) {
             return <h2>No community</h2>
         } else {
             return (

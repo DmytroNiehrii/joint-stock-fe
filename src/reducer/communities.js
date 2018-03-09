@@ -8,7 +8,9 @@ const CommunityRecord = Record({
     description: null,
     loading: false,
     createdDate: null,
-    modifiedDate: null
+    modifiedDate: null,
+    createdBy: null,
+    memberCount: 0
 })
 
 const ReducerRecord = Record({
@@ -33,13 +35,7 @@ export default (state = defaultState, action) => {
             return state
                 .set('loading', false)
                 .set('loaded', true)
-                .set('items', arrToMap(response.content, CommunityRecord))
-
-        case LOAD_COMMUNITY + START:
-            return state.setIn(['items', payload.id, 'loading'], true)
-
-        case LOAD_COMMUNITY + SUCCESS:
-            return state.setIn(['items', payload.id], new CommunityRecord(payload.response))
+                .set('items', arrToMap(response, CommunityRecord))
     }
 
     return state

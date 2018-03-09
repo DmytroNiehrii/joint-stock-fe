@@ -48,7 +48,7 @@ module.exports = {
         contentBase: 'public',
         historyApiFallback: true,
         proxy: [{
-            path: '/api/*',
+            path: '/api/**',
             target: 'http://localhost:8090'
         }],
     },
