@@ -17,6 +17,7 @@ export default class Header extends Component {
                 <Menu>
                     <MenuItem to='/user'>Users</MenuItem>
                     <MenuItem to='/community'>Communities</MenuItem>
+                    <MenuItem to='/test'>TestComponents</MenuItem>
                 </Menu>
             </div>
         )
