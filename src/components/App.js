@@ -19,7 +19,7 @@ class App extends Component {
                     <Redirect from='/' exact to={RouteConst.COMMUNITY_LIST}/>
                     <Route path = {RouteConst.USER_LIST} component = {UserList} />
                     <Route path = {RouteConst.COMMUNITY_LIST} component = {CommunityList}/>
-                    <Route path = {RouteConst.COMMUNITY} component = {Community}/>
+                    <Route path =  {RouteConst.COMMUNITY} component = {Community}/>
                     <Route path = '/test' component = {Description}/>
                     <Route path='*' render={this.notFound}/>
                 </Switch>

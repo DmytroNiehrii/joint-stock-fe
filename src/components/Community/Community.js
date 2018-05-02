@@ -37,8 +37,10 @@ class Community extends Component {
     }
 
     renderCardView() {
-        //this.loadCommunityToStore(this.props.match.params.id)
         const {loading, loaded} = this.props.selectedCommunity
+        if (!loaded && !loading) {
+            this.loadCommunityToStore(this.props.match.params.id)
+        }
         if (loading) {
             return (
                 <div className='communityCardContainer'>
@@ -46,14 +48,22 @@ class Community extends Component {
                 </div>
             )
         }
-        const {id, createdDate, modifiedDate, name, description, createdBy} = this.props.selectedCommunity.data
-        const l10 = translation()
+        if (loaded) {
+            const {id, createdDate, modifiedDate, name, description, createdBy} = this.props.selectedCommunity.data
+            const l10 = translation()
+            return (
+                <div className='communityCardContainer'>
+                    <div className='title-xl bold'>{name}</div>
+                    <div className='secondary-text'>{l10.created} {timestampToDate(createdDate)}</div>
+                    <div className='secondary-text'>{l10.modified} {timestampToDate(modifiedDate)}</div>
+                    <TextNote text={description}/>
+                </div>
+            )
+        }
+
         return (
             <div className='communityCardContainer'>
-                <div className='title-xl bold'>{name}</div>
-                <div className='secondary-text'>{l10.created} {timestampToDate(createdDate)}</div>
-                <div className='secondary-text'>{l10.modified} {timestampToDate(modifiedDate)}</div>
-                <TextNote text={description}/>
+                ????
             </div>
         )
 
