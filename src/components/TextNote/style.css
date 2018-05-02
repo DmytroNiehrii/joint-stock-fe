@@ -1,0 +1,17 @@
+@import url('../generalStyle.css');
+
+.descriptionContainer {
+    margin: var(--margin-m);
+    display: flex;
+    flex-direction: column;
+}
+
+.descriptionToolBar {
+    margin-top: var(--margin-s);
+    display: flex;
+    flex-flow: row-reverse;
+}
+
+.descriptionToolButton {
+    margin-left: var(--margin-m);
+}

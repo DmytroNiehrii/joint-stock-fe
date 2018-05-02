@@ -6,9 +6,11 @@ import {NavLink} from 'react-router-dom'
 import {loadCommunity} from '../../AC'
 import {connect} from 'react-redux'
 import Loading from '../Loading/Loading'
-import Description from '../Description/Description'
+import TextNote from '../TextNote/index'
+import {RouteConst} from '../../constants'
 
 class Community extends Component {
+
     render() {
         const {viewMode} = this.props
 
@@ -26,7 +28,8 @@ class Community extends Component {
         const l10 = translation()
         return (
             <div className='communityRowContainer'>
-                <NavLink className='title-xl bold clickable' to={'/communityCard'} onClick={this.handleCommunityClick}>{name}</NavLink>
+                <NavLink className='title-xl bold clickable' to={'/community/' + id} onClick={this.handleCommunityClick}>{name}</NavLink>
+
                 <div className='secondary-text'>{l10.created} {timestampToDate(createdDate)}</div>
                 <div className='secondary-text'>{l10.modified} {timestampToDate(modifiedDate)}</div>
             </div>
@@ -34,6 +37,7 @@ class Community extends Component {
     }
 
     renderCardView() {
+        //this.loadCommunityToStore(this.props.match.params.id)
         const {loading, loaded} = this.props.selectedCommunity
         if (loading) {
             return (
@@ -49,14 +53,18 @@ class Community extends Component {
                 <div className='title-xl bold'>{name}</div>
                 <div className='secondary-text'>{l10.created} {timestampToDate(createdDate)}</div>
                 <div className='secondary-text'>{l10.modified} {timestampToDate(modifiedDate)}</div>
-                <Description text={description}/>
+                <TextNote text={description}/>
             </div>
         )
 
     }
 
     handleCommunityClick = () => {
-        this.props.loadCommunity(this.props.data.id)
+        this.loadCommunityToStore(this.props.data.id)
+    }
+
+    loadCommunityToStore = (id) => {
+        this.props.loadCommunity(id)
     }
 }
 
