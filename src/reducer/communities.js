@@ -1,4 +1,4 @@
-import { DELETE_COMMUNITY, LOAD_ALL_COMMUNITIES, LOAD_COMMUNITY, SUCCESS, START } from '../constants'
+import { DELETE_COMMUNITY, LOAD_ALL_COMMUNITIES, UPDATE_COMMUNITY, SUCCESS, START } from '../constants'
 import {arrToMap} from './utils'
 import {Record} from 'immutable'
 
@@ -36,6 +36,9 @@ export default (state = defaultState, action) => {
                 .set('loading', false)
                 .set('loaded', true)
                 .set('items', arrToMap(response, CommunityRecord))
+
+        case UPDATE_COMMUNITY:
+            return state
     }
 
     return state

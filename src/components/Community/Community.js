@@ -3,13 +3,18 @@ import './style.css'
 import {translation} from '../../services/transtation'
 import {timestampToDate} from '../../utils/dateFormat'
 import {NavLink} from 'react-router-dom'
-import {loadCommunity} from '../../AC'
+import history from '../../history'
+import {loadCommunity, saveCommunity} from '../../AC'
 import {connect} from 'react-redux'
 import Loading from '../Loading/Loading'
 import TextNote from '../TextNote/index'
-import {RouteConst} from '../../constants'
+import ApplyPanel from '../ApplyPanel/index'
 
 class Community extends Component {
+
+    componentDidMount() {
+        this.setState({data: this.props.selectedCommunity.data})
+    }
 
     render() {
         const {viewMode} = this.props
@@ -56,17 +61,30 @@ class Community extends Component {
                     <div className='title-xl bold'>{name}</div>
                     <div className='secondary-text'>{l10.created} {timestampToDate(createdDate)}</div>
                     <div className='secondary-text'>{l10.modified} {timestampToDate(modifiedDate)}</div>
-                    <TextNote text={description}/>
+                    <TextNote text={this.props.selectedCommunity.data.description} postHandler={this.postHandler} />
+                    <ApplyPanel applyHandler={this.save} cancelHandler={this.back}/>
                 </div>
             )
         }
 
         return (
-            <div className='communityCardContainer'>
-                ????
-            </div>
+            <div className='communityCardContainer'/>
         )
 
+    }
+
+    back = () => {
+        history.goBack()
+    }
+    save = () => {
+        this.props.saveCommunity(Object.assign(
+            this.props.selectedCommunity.data,
+            {description: '123'}
+        ))
+    }
+
+    postHandler = () => {
+        this.setState({handled: true})
     }
 
     handleCommunityClick = () => {
@@ -83,4 +101,4 @@ const mapStateToProps = (state) => ({
     router: state.router
 })
 
-export default connect(mapStateToProps, { loadCommunity }, null, { pure: true })(Community)
+export default connect(mapStateToProps, { loadCommunity, saveCommunity }, null, { pure: true })(Community)

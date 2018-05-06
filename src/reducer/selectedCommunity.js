@@ -25,7 +25,7 @@ export default (state = defaultState, action) => {
 
     switch (type) {
         case LOAD_COMMUNITY + START:
-            return state
+            return state 
                 .set('id', payload.id)
                 .set('loading', true)
                 .set('loaded', false)

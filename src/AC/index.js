@@ -1,4 +1,4 @@
-import { LOAD_ALL_COMMUNITIES, LOAD_COMMUNITY, LOAD_ALL_USERS, LOAD_USER } from '../constants'
+import { LOAD_ALL_COMMUNITIES, LOAD_COMMUNITY, LOAD_ALL_USERS, LOAD_USER, UPDATE_COMMUNITY, HTTP_METHOD } from '../constants'
 import {replace} from 'react-router-redux'
 
 export function checkAndLoadAllCommunities() {
@@ -20,6 +20,18 @@ export function loadCommunity(id) {
             type: LOAD_COMMUNITY,
             callAPI: `/api/community/${id}`,
             payload: { id }
+        })
+    }
+}
+
+export function saveCommunity(data) {
+    return (dispatch, getState) => {
+        dispatch({
+            httpMethod: HTTP_METHOD.POST,
+            type: UPDATE_COMMUNITY,
+            callAPI: `/api/community/save`,
+            //callAPI: `https://jsonplaceholder.typicode.com/posts/1`,
+            payload: data
         })
     }
 }

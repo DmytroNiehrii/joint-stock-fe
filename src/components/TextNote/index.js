@@ -19,7 +19,7 @@ class TextNote extends Component {
             <div className="descriptionContainer">
                 <textarea>{this.state.text}</textarea>
                 <div className="descriptionToolBar">
-                    <button className="descriptionToolButton">Post</button>
+                    <button className="descriptionToolButton" onClick={this.props.postHandler}>Post</button>
                     <button className="descriptionToolButton">Delete</button>
                 </div>
 

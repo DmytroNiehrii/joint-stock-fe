@@ -8,6 +8,7 @@
     --colorFour:  #7A8DB1;
     --colorFive:  #4A5C7F;
 
+
     /*========= Backgrounds =========*/
     --bg-dark:   var(--colorOne);
     --bg-light:  var(--colorThree);
@@ -15,11 +16,17 @@
     --bg-middle: var(--colorTwo);
     --bg-menuHightlighted: var(--colorFive);
 
+    --bg-success: #4CAF50;
+    --bg-warning: #f2dede;
+
     /*========= Text Colors =========*/
     --text-color-dark: var(--colorOne);
     --text-color-light: var(--colorThree);
     --text-color-accent: #6257b0;
     --text-color-disable:  rgba(0,0,0,.68);
+
+    --text-color-hightlight-light: #FFFFFF;
+    --text-color-hightlight-dark: #000000;
 
     /*========= Fonts =========*/
     --font-primary: 'Nanum Gothic Coding';

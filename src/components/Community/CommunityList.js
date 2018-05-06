@@ -4,7 +4,8 @@ import './style.css'
 import Community from "./Community"
 import {checkAndLoadAllCommunities} from '../../AC'
 import {connect} from 'react-redux'
-import Loading from "../Loading/Loading";
+import Loading from '../Loading/Loading'
+import {filtratedCommunitiesSelector} from '../../selectors'
 
 class CommunityList extends Component {
 
@@ -42,7 +43,7 @@ CommunityList.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    items: state.communities.items,
+    items: filtratedCommunitiesSelector(state),
     loading: state.communities.loading,
     router: state.router
 })
