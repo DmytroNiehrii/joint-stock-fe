@@ -6,7 +6,6 @@
     font-size: var(--font-size-xl);
     align-self: center;
     text-decoration: none;
-
 }
 
 .title-l {
@@ -40,6 +39,13 @@
 .secondary-text {
     color: var(--text-color-disable);
     font-size: var(--font-size-m);
+}
+
+.edit-border {
+    border: 2px;
+    border-color: blue;
+    border-style: solid;
+    border-radius: 3px;
 }
 
 .hightlight-border {

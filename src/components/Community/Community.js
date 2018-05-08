@@ -16,7 +16,6 @@ class Community extends Component {
     componentDidMount() {
         this.setState({
             data: this.props.selectedCommunity.data,
-            isTitleEditable: 'false'
         })
     }
 
@@ -37,7 +36,7 @@ class Community extends Component {
         const l10 = translation()
         return (
             <div className='communityRowContainer'>
-                <NavLink className='title-xl bold clickable' to={'/community/' + id} onClick={this.handleCommunityClick}>{name}</NavLink>
+                <NavLink className='title-xl bold clickable' to={'/community/' + id} onClick={this.handleCommunityClick} dangerouslySetInnerHTML={{__html: name}}></NavLink>
 
                 <div className='secondary-text'>{l10.created} {timestampToDate(createdDate)}</div>
                 <div className='secondary-text'>{l10.modified} {timestampToDate(modifiedDate)}</div>
@@ -59,16 +58,19 @@ class Community extends Component {
         }
         if (loaded) {
             const {id, createdDate, modifiedDate, name, description, createdBy} = this.props.selectedCommunity.data
-            const {isTitleEditable} = this.state;
             const l10 = translation()
 
             return (
                 <div className='communityCardContainer'>
-                    <FieldEditable className='title-xl bold' contenteditable='false' value={name} ref={this.setTitleRef}/>
+                    <FieldEditable id='CommunityName' className='title-xl bold'
+                                   contenteditable={true} value={name}
+                                   ref={(ref) => {this.title = ref}}
+                                   onUpdateHandler={this.save}
+                    />
                     <div className='secondary-text'>{l10.created} {timestampToDate(createdDate)}</div>
                     <div className='secondary-text'>{l10.modified} {timestampToDate(modifiedDate)}</div>
-                    <TextNote ref={this.setDescriptionRef} text={this.props.selectedCommunity.data.description} postHandler={this.postHandler} />
-                    <ApplyPanel applyHandler={this.save} cancelHandler={this.back}/>
+                    {this.renderDescription()}
+
                 </div>
             )
         }
@@ -79,16 +81,6 @@ class Community extends Component {
 
     }
 
-    setDescriptionRef = ref => {
-        this.description = ref
-    }
-    setTitleRef = ref => {
-        this.title = ref
-    }
-
-    back = () => {
-        history.goBack()
-    }
     save = () => {
         this.props.saveCommunity(Object.assign(
             this.props.selectedCommunity.data,
@@ -99,16 +91,26 @@ class Community extends Component {
         ))
     }
 
-    postHandler = () => {
-        this.setState({handled: true})
-    }
-
     handleCommunityClick = () => {
         this.loadCommunityToStore(this.props.data.id)
     }
 
     loadCommunityToStore = (id) => {
         this.props.loadCommunity(id)
+    }
+
+    renderDescription() {
+        return (
+            <div className='descriptionContainer'>
+                <div className='descriptionLabel bold'>Description</div>
+                <FieldEditable id='CommunityDescription' className='description'
+                               contenteditable={true}
+                               value={this.props.selectedCommunity.data.description}
+                               ref={(ref) => {this.description = ref}}
+                               onUpdateHandler={this.save}
+                />
+            </div>
+        )
     }
 }
 

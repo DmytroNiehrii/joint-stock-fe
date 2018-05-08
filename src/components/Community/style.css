@@ -7,3 +7,18 @@
 .communityCardContainer {
     margin: var(--margin-m);
 }
+
+.descriptionContainer {
+    margin-top: var(--margin-l);
+}
+
+.descriptionLabel {
+    margin-bottom: var(--margin-s);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-m);
+}
+
+.description {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-m);
+}
