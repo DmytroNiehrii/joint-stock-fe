@@ -11,13 +11,13 @@ class TextNote extends Component {
     componentWillMount() {
         let {text} = this.props;
 
-        this.setState({text: text})
+        this.setState({value: text})
     }
 
     render() {
         return (
             <div className="descriptionContainer">
-                <textarea>{this.state.text}</textarea>
+                <textarea onChange={this.handleChange}>{this.state.value}</textarea>
                 <div className="descriptionToolBar">
                     <button className="descriptionToolButton" onClick={this.props.postHandler}>Post</button>
                     <button className="descriptionToolButton">Delete</button>
@@ -26,6 +26,10 @@ class TextNote extends Component {
             </div>
 
         );
+    }
+
+    handleChange = (event) => {
+        this.setState({value: event.target.value})
     }
 }
 

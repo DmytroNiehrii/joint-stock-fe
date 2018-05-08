@@ -11,9 +11,9 @@ export default store => next => action => {
     switch (action.httpMethod) {
         case HTTP_METHOD.POST:
             fetch(callAPI, {
-                method: HTTP_METHOD.POST,
+                method: action.httpMethod,
                 headers: {'Content-Type':'application/json'},
-                body: action.payload
+                body: JSON.stringify(action.payload)
             })
                 .then(res => res.json())
                 .then(response => next({...rest, type: type + SUCCESS, response}))

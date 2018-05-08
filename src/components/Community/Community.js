@@ -13,7 +13,10 @@ import ApplyPanel from '../ApplyPanel/index'
 class Community extends Component {
 
     componentDidMount() {
-        this.setState({data: this.props.selectedCommunity.data})
+        this.setState({
+            data: this.props.selectedCommunity.data,
+            isTitleEditable: 'false'
+        })
     }
 
     render() {
@@ -55,13 +58,15 @@ class Community extends Component {
         }
         if (loaded) {
             const {id, createdDate, modifiedDate, name, description, createdBy} = this.props.selectedCommunity.data
+            const {isTitleEditable} = this.state;
             const l10 = translation()
+
             return (
                 <div className='communityCardContainer'>
-                    <div className='title-xl bold'>{name}</div>
+                    <div className='title-xl bold' contenteditable={isTitleEditable}  onDoubleClick={this.toEditMode}>{name}</div>
                     <div className='secondary-text'>{l10.created} {timestampToDate(createdDate)}</div>
                     <div className='secondary-text'>{l10.modified} {timestampToDate(modifiedDate)}</div>
-                    <TextNote text={this.props.selectedCommunity.data.description} postHandler={this.postHandler} />
+                    <TextNote ref = {this.setDescriptionRef} text={this.props.selectedCommunity.data.description} postHandler={this.postHandler} />
                     <ApplyPanel applyHandler={this.save} cancelHandler={this.back}/>
                 </div>
             )
@@ -73,13 +78,21 @@ class Community extends Component {
 
     }
 
+    toEditMode = (event) => {
+        this.setState({isTitleEditable: 'true' })
+    }
+
+    setDescriptionRef = ref => {
+        this.description = ref
+    }
+
     back = () => {
         history.goBack()
     }
     save = () => {
         this.props.saveCommunity(Object.assign(
             this.props.selectedCommunity.data,
-            {description: '123'}
+            {description: this.description.state.value }
         ))
     }
 
