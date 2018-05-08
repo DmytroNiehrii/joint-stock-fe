@@ -30,7 +30,6 @@ export function saveCommunity(data) {
             httpMethod: HTTP_METHOD.POST,
             type: UPDATE_COMMUNITY,
             callAPI: `/api/community/save`,
-            //callAPI: `https://jsonplaceholder.typicode.com/posts/1`,
             payload: data
         })
     }

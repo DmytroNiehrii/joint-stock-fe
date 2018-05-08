@@ -1,7 +1,6 @@
 @import url('../generalStyle.css');
 
 .descriptionContainer {
-    margin: var(--margin-m);
     display: flex;
     flex-direction: column;
 }

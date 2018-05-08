@@ -9,6 +9,7 @@ import {connect} from 'react-redux'
 import Loading from '../Loading/Loading'
 import TextNote from '../TextNote/index'
 import ApplyPanel from '../ApplyPanel/index'
+import FieldEditable from "../FIeldEditable/index";
 
 class Community extends Component {
 
@@ -63,10 +64,10 @@ class Community extends Component {
 
             return (
                 <div className='communityCardContainer'>
-                    <div className='title-xl bold' contenteditable={isTitleEditable}  onDoubleClick={this.toEditMode}>{name}</div>
+                    <FieldEditable className='title-xl bold' contenteditable='false' value={name} ref={this.setTitleRef}/>
                     <div className='secondary-text'>{l10.created} {timestampToDate(createdDate)}</div>
                     <div className='secondary-text'>{l10.modified} {timestampToDate(modifiedDate)}</div>
-                    <TextNote ref = {this.setDescriptionRef} text={this.props.selectedCommunity.data.description} postHandler={this.postHandler} />
+                    <TextNote ref={this.setDescriptionRef} text={this.props.selectedCommunity.data.description} postHandler={this.postHandler} />
                     <ApplyPanel applyHandler={this.save} cancelHandler={this.back}/>
                 </div>
             )
@@ -78,12 +79,11 @@ class Community extends Component {
 
     }
 
-    toEditMode = (event) => {
-        this.setState({isTitleEditable: 'true' })
-    }
-
     setDescriptionRef = ref => {
         this.description = ref
+    }
+    setTitleRef = ref => {
+        this.title = ref
     }
 
     back = () => {
@@ -92,7 +92,10 @@ class Community extends Component {
     save = () => {
         this.props.saveCommunity(Object.assign(
             this.props.selectedCommunity.data,
-            {description: this.description.state.value }
+            {
+                description: this.description.state.value,
+                name: this.title.state.value
+            }
         ))
     }
 

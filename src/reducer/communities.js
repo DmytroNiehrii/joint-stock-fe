@@ -37,8 +37,8 @@ export default (state = defaultState, action) => {
                 .set('loaded', true)
                 .set('items', arrToMap(response, CommunityRecord))
 
-        case UPDATE_COMMUNITY:
-            return state
+        case UPDATE_COMMUNITY + SUCCESS:
+            return state.setIn(['items', payload.id], payload)
     }
 
     return state

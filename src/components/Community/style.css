@@ -3,3 +3,7 @@
 .communityRowContainer {
     margin-bottom: var(--margin-m);
 }
+
+.communityCardContainer {
+    margin: var(--margin-m);
+}
