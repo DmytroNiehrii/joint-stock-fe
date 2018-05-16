@@ -9,7 +9,7 @@ import {connect} from 'react-redux'
 import Loading from '../Loading/Loading'
 import TextNote from '../TextNote/index'
 import ApplyPanel from '../ApplyPanel/index'
-import FieldEditable from "../FIeldEditable/index";
+import FieldEditable from "../FieldEditable/index";
 
 class Community extends Component {
 

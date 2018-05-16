@@ -1,0 +1,14 @@
+@import url('../generalStyle.css');
+
+.button {
+    background: var(--bg-dark);
+    color: var(--text-color-hightlight-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hovering {
+    color: var(--text-color-hightlight-light)
+}
+

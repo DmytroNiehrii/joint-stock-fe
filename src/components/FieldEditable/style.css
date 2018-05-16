@@ -1,0 +1,7 @@
+@import url('../generalStyle.css');
+
+.hightlighted {
+    background: var(--bg-focus);
+    transition: 0.5s ease;
+}
+
