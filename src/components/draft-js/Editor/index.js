@@ -7,6 +7,7 @@ import defaultToolbar from '../config/defaultToolbar'
 import ModalHandler from '../event-handler/modals'
 import FocusHandler from '../event-handler/focus'
 import KeyDownHandler from '../event-handler/keyDown'
+import SuggestionHandler from '../event-handler/suggestions'
 import getBlockRenderFunc from "../renderer"
 import getLinkDecorator from '../decorators/Link'
 import localeTranslations from '../i18n'
@@ -30,6 +31,9 @@ import {
     getSelectedBlocksType
 } from 'draftjs-utils'
 import classNames from 'classnames'
+
+import './styles.css'
+import './Draft.css'
 
 export default class WysiwygEditor extends Component {
 
