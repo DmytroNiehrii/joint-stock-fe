@@ -8,8 +8,8 @@ import {loadCommunity, saveCommunity} from '../../AC'
 import {connect} from 'react-redux'
 import Loading from '../Loading/Loading'
 import TextNote from '../TextNote/index'
-import ApplyPanel from '../ApplyPanel/index'
 import FieldEditable from "../FieldEditable/index";
+import Editor from '../draft-js/Editor'
 
 class Community extends Component {
 
@@ -100,14 +100,14 @@ class Community extends Component {
     }
 
     renderDescription() {
+
         return (
             <div className='descriptionContainer'>
                 <div className='descriptionLabel bold'>Description</div>
-                <FieldEditable id='CommunityDescription' className='description'
-                               contenteditable={true}
-                               value={this.props.selectedCommunity.data.description}
-                               ref={(ref) => {this.description = ref}}
-                               onUpdateHandler={this.save}
+                <Editor id='CommunityDescription' className='description'
+                        editorState={this.props.selectedCommunity.data.description}
+                        ref={(ref) => {this.description = ref}}
+                        onEditorStateChange = {this.save}
                 />
             </div>
         )
