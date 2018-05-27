@@ -79,7 +79,7 @@ const getImageComponent = config => class Image extends Component {
     );
   }
 
-  render(): Object {
+  render() {
     const { block, contentState } = this.props;
     const { hovered } = this.state;
     const { isReadOnly, isImageAlignmentEnabled } = config;
