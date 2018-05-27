@@ -1,0 +1,18 @@
+@import url('../generalStyle.css');
+
+.applyPanelContainer {
+    background: transparent;
+    padding: var(--margin-m);
+    display: flex;
+    justify-content: flex-start;
+}
+.applyButton {
+    background: var(--bg-success);
+    color: var(--text-color-hightlight-light);
+}
+
+.cancelButton {
+    background: var(--bg-warning);
+    color: var(--text-color-hightlight-light);
+}
+

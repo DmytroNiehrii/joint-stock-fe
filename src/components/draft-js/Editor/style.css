@@ -1,0 +1,10 @@
+@import url('../../generalStyle.css');
+
+.container {
+    border: solid;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 2px;
+}
+
+
