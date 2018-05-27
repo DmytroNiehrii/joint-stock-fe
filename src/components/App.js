@@ -3,8 +3,8 @@ import Header from './Header/Header'
 import UserList from "./User/UserList"
 import CommunityList from "./Community/CommunityList"
 import Community from "./Community/Community"
-import Editor from "./draft-js/YEditor"
 import {Route, Switch, Redirect} from 'react-router-dom'
+import Editor from './draft-js/Editor'
 
 import {RouteConst} from '../constants'
 
